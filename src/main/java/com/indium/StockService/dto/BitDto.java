@@ -1,28 +1,19 @@
-package com.indium.StockService.entity;
+package com.indium.StockService.dto;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
-@Entity
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Bit {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+public class BitDto {
 
     private Integer userId;
     private Integer assetId;
-    private String status;
     private Integer quantity;
-
-    @Column(name="Buy_or_Sell")
     private String buyOrSell;
 }

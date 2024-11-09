@@ -25,5 +25,4 @@ public class Transactions {
     private String buyOrSell;
     private Integer buyerId;
     private Integer sellerId;
-    private BigDecimal balance;
 }
