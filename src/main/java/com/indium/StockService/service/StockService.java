@@ -66,4 +66,8 @@ public class StockService {
             }
         }
     }
+
+    public List<Transactions> getAllTransactionsByUserId(Integer userId) {
+        return transactionsRepository.findByUserId(userId);
+    }
 }
