@@ -53,12 +53,12 @@ public class StockService {
                         .buyerId(bitDto.getUserId())
                         .sellerId(bitDataList.get(0).getUserId())
                         .build();
-                Holding buyerHolding = holdingRepository.findByAssetIdandUserId(bitReq.getAssetId(), bitDto.getUserId()).get(0);
+                Holding buyerHolding = holdingRepository.findByAssetIdAndUserId(bitReq.getAssetId(), bitDto.getUserId()).get(0);
                 buyerHolding.setQuantity(buyerHolding.getQuantity() + bitDto.getQuantity());
                 Asset asset = assetRepository.findById(bitDto.getAssetId()).get();
                 buyerHolding.setBalance(new BigDecimal(buyerHolding.getBalance().intValue() - (bitDto.getQuantity()) * asset.getPrice().intValue()));
                 holdingRepository.save(buyerHolding);
-                Holding sellerHolding = holdingRepository.findByAssetIdandUserId(bitReq.getAssetId(), bitDataList.get(0).getUserId()).get(0);
+                Holding sellerHolding = holdingRepository.findByAssetIdAndUserId(bitReq.getAssetId(), bitDataList.get(0).getUserId()).get(0);
                 sellerHolding.setQuantity(sellerHolding.getQuantity() - bitDto.getQuantity());
                 sellerHolding.setBalance(new BigDecimal(sellerHolding.getBalance().intValue() + (bitDto.getQuantity()) * asset.getPrice().intValue()));
                 holdingRepository.save(sellerHolding);

@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface BitRepository extends JpaRepository<Bit, Integer> {
-    @Query("select * from Bit where buyOrSell = :buyOrSell and quantity = :quantity and assetId = :assetId")
+    @Query(value = "select * from Bit where buyOrSell = :buyOrSell and quantity = :quantity and assetId = :assetId", nativeQuery = true)
     List<Bit> getBuyOrSellRecords(@Param("buyOrSell") String buyOrSell, @Param("quantity") Integer quantity, @Param("assetId") Integer assetId);
 }

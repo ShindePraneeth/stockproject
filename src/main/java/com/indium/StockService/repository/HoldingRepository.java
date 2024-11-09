@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface HoldingRepository extends JpaRepository<Holding, Integer> {
 
-    public List<Holding> findByAssetIdandUserId(Integer assetId, Integer userId);
+    List<Holding> findByAssetIdAndUserId(Integer assetId, Integer userId);
 }
